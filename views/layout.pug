@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title expressProject
+        link(rel="stylesheet", href="/bower_components/bootstrap/dist/css/bootstrap.css")
+        link(rel="stylesheet", href="/css/style.css")
+    body
+        nav.navbar.navbar-expand-lg.navbar-light.bg-light
+          a.navbar-brand(href='/') ExpressTrial
+          button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+
+          .collapse.navbar-collapse(id='navbarSupportedContent')
+            ul.navbar-nav.mr-auto
+              li.nav-item.active
+                a.nav-link(href='/') Home
+              li.nav-item
+                a.nav-link(href='/articles/add') add articles
+              li.nav-item
+            ul.navbar-nav.float-right
+              li.nav-item
+                a.nav-link(href='/user/login') Login
+              li.nav-item
+                a.nav-link(href='/user/register') Register
+              
+          
+        .container
+            != messages('message', locals)
+            if errors
+              each error, i in errors
+                div(class='alert alert-danger') #{error.msg}
+            block content
+            br
+            hr
+            footer
+                p Copyright &copy; 2020
+        
+        script(src="/bower_components/jquery/dist/jquery.js")
+        script(src="/bower_components/bootstrap/dist/js/bootstrap.js")
+        script(src="/js/main.js")
